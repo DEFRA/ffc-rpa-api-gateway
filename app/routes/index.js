@@ -6,7 +6,7 @@ const proxyCall = () => {
     mapUri: (req) => {
       const query = req.url.search ? req.url.search : ''
       console.log(`headers: ${JSON.stringify(req.headers)}`)
-      const Authorization = req.headers.Authorization ? { Authorization: req.headers.Authorization } : {}
+      const Authorization = req.headers.authorization ? { Authorization: req.headers.authorization } : {}
       const uri = `${rpaApi}${req.url.pathname}${query}`
       console.log(`Proxying request to ${uri} with headers ${Authorization}`)
       return {
