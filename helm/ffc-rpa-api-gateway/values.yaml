@@ -1,11 +1,10 @@
-environment: production
-environmentCode:
+environment: development
 name: ffc-rpa-api-gateway
 namespace: ffc-rpa
+workstream: ffc-rpa
 image: ffc-rpa-api-gateway
 
-labels:
-  component: service
+labels: {}
 
 appInsights:
   key:
