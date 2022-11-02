@@ -3,17 +3,12 @@ const { rpaApi } = require('../config')
 
 const proxyCall = () => {
   return {
+    passThrough: true,
     mapUri: (req) => {
       const query = req.url.search ? req.url.search : ''
-      console.log(`headers: ${JSON.stringify(req.headers)}`)
-      const authorization = req.headers.authorization
       const uri = `${rpaApi}${req.url.pathname}${query}`
-      console.log(`Proxying request to ${uri} with headers ${authorization}`)
       return {
-        uri,
-        headers: {
-          authorization
-        }
+        uri
       }
     },
     onResponse: async (e, res, req, h) => {
