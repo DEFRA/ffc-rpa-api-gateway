@@ -1,8 +1,8 @@
 environment: production
 environmentCode:
-name: ffc-template-node
-namespace: ffc-demo
-image: ffc-template-node
+name: ffc-rpa-api-gateway
+namespace: ffc-rpa
+image: ffc-rpa-api-gateway
 
 labels:
   component: service
@@ -11,13 +11,25 @@ appInsights:
   key:
 
 containerConfigMap:
-  name: ffc-template-node-config-map
+  name: ffc-rpa-api-gateway-config-map
 
 containerSecret:
-  name: ffc-template-node-container-secret
+  name: ffc-rpa-api-gateway-container-secret
   type: Opaque
 
-deployment: {}
+service:
+  port: 80
+  type: ClusterIP
+
+deployment:
+  restartPolicy: Always
+  priorityClassName: high
+  replicas: 1
+  minReplicas: 1
+  maxReplicas: 4
+  cpuThreshold: 80
+  memoryThreshold: 80
+  minReadySeconds: 0
 
 container:
   requestMemory: 100Mi
@@ -25,6 +37,12 @@ container:
   limitMemory: 100Mi
   limitCpu: 100m
   port: 3000
+  rpaApi:
+
+ingress:
+  class: nginx
+  endpoint: ffc-rpa-api-gateway
+  server: example.com
 
 livenessProbe:
   path: /healthz

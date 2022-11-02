@@ -1,6 +1,6 @@
 apiVersion: v2
-description: description-of-project-goes-here
-name: ffc-template-node
+description: Api Gateway for connecting to RPA Api
+name: ffc-rpa-api-gateway
 # this version is automatically updated in the build pipeline
 version: 1.0.0
 dependencies:

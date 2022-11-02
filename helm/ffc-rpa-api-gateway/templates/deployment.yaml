@@ -1,0 +1,8 @@
+{{- include "ffc-helm-library.deployment" (list . "ffc-rpa-api-gateway.deployment") -}}
+{{- define "ffc-rpa-api-gateway.deployment" -}}
+spec:
+  template:
+    spec:
+      containers:
+      - {{ include "ffc-helm-library.container" (list . "ffc-rpa-api-gateway.container") }}
+{{- end -}}
