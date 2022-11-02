@@ -7,6 +7,7 @@ const proxyCall = () => {
     mapUri: (req) => {
       const query = req.url.search ? req.url.search : ''
       const uri = `${rpaApi}${req.url.pathname}${query}`
+      console.log(`Proxying to ${uri}`)
       return {
         uri
       }

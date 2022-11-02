@@ -26,6 +26,9 @@ ARG PORT
 ENV PORT ${PORT}
 EXPOSE ${PORT}
 
+RUN apt-get update \
+    && apt-get install -y curl jq
+
 COPY --from=development /home/node/app/ ./app/
 COPY --from=development /home/node/package*.json ./
 RUN npm ci
