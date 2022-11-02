@@ -29,4 +29,5 @@ EXPOSE ${PORT}
 COPY --from=development /home/node/app/ ./app/
 COPY --from=development /home/node/package*.json ./
 RUN npm ci
+RUN apk --no-cache add curl
 CMD [ "node", "app" ]
