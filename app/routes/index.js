@@ -1,9 +1,15 @@
 const wreck = require('@hapi/wreck')
-const { rpaApi } = require('../config')
+const https = require('https')
+const { rpaApi, certificate, key, passphrase } = require('../config')
 
 const proxyCall = () => {
   return {
     passThrough: true,
+    agent: new https.Agent({
+      cert: certificate,
+      key,
+      passphrase
+    }),
     mapUri: (req) => {
       const query = req.url.search ? req.url.search : ''
       const uri = `${rpaApi}${req.url.pathname}${query}`

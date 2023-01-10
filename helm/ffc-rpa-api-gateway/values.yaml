@@ -37,6 +37,9 @@ container:
   limitCpu: 100m
   port: 3000
   rpaApi:
+  certificate:
+  key:
+  passphrase:
 
 ingress:
   class: nginx
