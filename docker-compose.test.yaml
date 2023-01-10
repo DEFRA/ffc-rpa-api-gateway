@@ -16,3 +16,6 @@ services:
       - ./package.json:/home/node/package.json
     environment:
       RPA_API: https://test.com
+      CERTIFICATE: test_certificate
+      KEY: test_key
+      PASSPHRASE: test_passphrase
