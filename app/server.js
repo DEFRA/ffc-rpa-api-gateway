@@ -4,7 +4,7 @@ const config = require('./config')
 const storage = require('./storage')
 
 const getCert = async () => {
-  config.certificate = await storage.downloadFile('horizon-key.crt')
+  config.certificate = await storage.downloadFile('horizon-public.crt')
   config.key = await storage.downloadFile('horizon-private.key')
   console.log('Certificate and key downloaded')
 }
