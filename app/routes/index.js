@@ -2,9 +2,9 @@ const wreck = require('@hapi/wreck')
 const https = require('https')
 const { rpaApi, certificate, key, passphrase } = require('../config')
 
-console.log('rpaApi', rpaApi)
 console.log('certificate', certificate)
 console.log('key', key)
+console.log('rpaApi', rpaApi)
 
 const proxyCall = () => {
   return {
