@@ -44,7 +44,7 @@ container:
   passphrase:
   azureStorageAccountName: ffcrpa
   azureStorageConnectionString: dummy
-  azureStorageUseConnectionString: false
+  azureStorageUseConnectionString: true
   azureStorageCreateContainers: false
 
 ingress:
