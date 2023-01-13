@@ -8,8 +8,10 @@ services:
     environment:
       APPINSIGHTS_CLOUDROLE: ffc-rpa-api-gateway-local
       APPINSIGHTS_INSTRUMENTATIONKEY: ${APPINSIGHTS_INSTRUMENTATIONKEY}
-      RPA_API: ${RPA_API}
-      CERTIFICATE: ${CERTIFICATE}
-      KEY: ${KEY}
-      PASSPHRASE: ${PASSPHRASE}
+      AZURE_STORAGE_CONNECTION_STRING: ${AZURE_STORAGE_CONNECTION_STRING:-UseDevelopmentStorage=true}
+      AZURE_STORAGE_ACCOUNT_NAME: ${AZURE_STORAGE_ACCOUNT_NAME:-devstoreaccount1}
+      AZURE_STORAGE_USE_CONNECTION_STRING: "true"
+      AZURE_STORAGE_CREATE_CONTAINERS: "true"
+      RPA_API: https://ffc-techspike-mtls-server.azurewebsites.net
+      PASSPHRASE: ''
 

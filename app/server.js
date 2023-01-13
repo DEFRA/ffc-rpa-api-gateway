@@ -1,8 +1,17 @@
 const hapi = require('@hapi/hapi')
 const H2o2 = require('@hapi/h2o2')
 const config = require('./config')
+const storage = require('./storage')
+
+const getCert = async () => {
+  config.certificate = await storage.downloadFile('horizon-public.crt')
+  config.key = await storage.downloadFile('horizon-private.key')
+  console.log('Certificate and key downloaded')
+}
 
 async function createServer () {
+  await getCert()
+
   // Create the hapi server
   const server = hapi.server({
     port: config.port,

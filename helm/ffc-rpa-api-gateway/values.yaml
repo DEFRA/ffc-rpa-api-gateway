@@ -42,6 +42,10 @@ container:
   certificate:
   key:
   passphrase:
+  azureStorageAccountName: ffcrpa
+  azureStorageConnectionString: dummy
+  azureStorageUseConnectionString: false
+  azureStorageCreateContainers: false
 
 ingress:
   class: nginx
