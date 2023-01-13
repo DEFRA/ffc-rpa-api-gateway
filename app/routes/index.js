@@ -9,6 +9,7 @@ console.log('rpaApi', rpaApi)
 const proxyCall = () => {
   return {
     passThrough: true,
+    rejectUnauthorized: false,
     agent: new https.Agent({
       cert: certificate,
       key,
