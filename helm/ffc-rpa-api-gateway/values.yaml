@@ -6,6 +6,8 @@ image: ffc-rpa-api-gateway
 
 labels: {}
 
+aadPodIdentity: true
+
 appInsights:
   key:
 
