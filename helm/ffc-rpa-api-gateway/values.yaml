@@ -27,7 +27,7 @@ deployment:
   priorityClassName: high
   replicas: 1
   minReplicas: 1
-  maxReplicas: 4
+  maxReplicas: 1
   cpuThreshold: 80
   memoryThreshold: 80
   minReadySeconds: 0
