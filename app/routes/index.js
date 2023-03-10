@@ -36,7 +36,7 @@ const proxyCall = () => {
           res.on('data', chunk => {
             body += chunk.toString()
           })
-          
+
           return res.on('end', () => {
             console.log(`Payload is ${body}.`)
             const response = h.response(body).type(res.headers['content-type']).code(res.statusCode)
