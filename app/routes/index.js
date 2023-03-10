@@ -30,7 +30,7 @@ const proxyCall = () => {
         const response = h.response({ error: e.message }).type('application/json').code(500)
         return response
       } else {
-        const payload = await wreck.read(res)
+        const payload = await wreck.read(res, { json: true })
         console.log(`res is ${payload}`)
         const response = h.response(payload).type(res.headers['content-type']).code(res.statusCode)
         return response
