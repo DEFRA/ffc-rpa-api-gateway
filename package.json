@@ -1,6 +1,6 @@
 {
   "name": "ffc-rpa-api-gateway",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Api Gateway for connecting to RPA Api",
   "homepage": "https://github.com/DEFRA/ffc-rpa-api-gateway",
   "main": "app/index.js",
