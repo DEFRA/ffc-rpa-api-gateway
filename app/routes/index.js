@@ -33,7 +33,7 @@ const proxyCall = () => {
         try {
           console.log(`Received response with status code ${res.statusCode} and content type ${res.headers['content-type']}.`)
           const payload = await wreck.read(res, { json: true })
-          console.log(`Payload is ${payload}.`)
+          console.log(`Payload is ${JSON.stringify(payload)}.`)
           const response = h.response(payload).type(res.headers['content-type']).code(res.statusCode)
           return response
         } catch (e) {
