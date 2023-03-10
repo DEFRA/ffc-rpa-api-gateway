@@ -24,14 +24,15 @@ const proxyCall = () => {
       }
     },
     onResponse: async (e, res, req, h) => {
-      if(e) {
+      // https://hapi.dev/api/?v=21.3.0#response-object
+      if (e) {
         console.log(`error is ${e}`)
         const response = h.response({ error: e.message }).type('application/json').code(500)
         return response
       } else {
         const payload = await wreck.read(res)
         console.log(`res is ${payload}`)
-        const response = h.response(payload).type(res.headers["content-type"]).code(res.statusCode)
+        const response = h.response(payload).type(res.headers['content-type']).code(res.statusCode)
         return response
       }
     }
