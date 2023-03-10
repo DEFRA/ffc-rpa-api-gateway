@@ -32,10 +32,17 @@ const proxyCall = () => {
       } else {
         try {
           console.log(`Received response with status code ${res.statusCode} and content type ${res.headers['content-type']}.`)
-          const payload = await wreck.read(res, { json: true })
-          console.log(`Payload is ${JSON.stringify(payload)}.`)
-          const response = h.response(payload).type(res.headers['content-type']).code(res.statusCode)
-          return response
+          
+          let body = ""
+          res.on('data', chunk => {
+            body += chunk.toString()
+          })
+      
+          return res.on('end', () => {
+            console.log(`Payload is ${body}.`)
+            const response = h.response(body).type(res.headers['content-type']).code(res.statusCode)
+            return response
+          })
         } catch (e) {
           console.log(`Cannot parse response - ${e}`)
           const response = h.response({ error: e }).type('application/json').code(500)
