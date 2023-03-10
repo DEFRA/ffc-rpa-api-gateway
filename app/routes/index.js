@@ -1,4 +1,3 @@
-// const wreck = require('@hapi/wreck')
 const https = require('https')
 const { rpaApi, certificate, key, passphrase } = require('../config')
 
