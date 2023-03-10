@@ -24,9 +24,8 @@ const proxyCall = () => {
       }
     },
     onResponse: async (e, res, req, h) => {
-      console.log(`type is ${typeof e}`)
       console.log(`error is ${e}`)
-      console.log(`error json is ${JSON.stringify(e)}`)
+      console.log(`res is ${res}`)
       const payload = await wreck.read(res, { json: true })
       console.log(`Payload is ${JSON.stringify(payload)}`)
       const response = h.response(payload)
