@@ -1,4 +1,4 @@
-const wreck = require('@hapi/wreck')
+// const wreck = require('@hapi/wreck')
 const https = require('https')
 const { rpaApi, certificate, key, passphrase } = require('../config')
 
@@ -32,12 +32,11 @@ const proxyCall = () => {
       } else {
         try {
           console.log(`Received response with status code ${res.statusCode} and content type ${res.headers['content-type']}.`)
-          
-          let body = ""
+          let body = ''
           res.on('data', chunk => {
             body += chunk.toString()
           })
-      
+          
           return res.on('end', () => {
             console.log(`Payload is ${body}.`)
             const response = h.response(body).type(res.headers['content-type']).code(res.statusCode)
