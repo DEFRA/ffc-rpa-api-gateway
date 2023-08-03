@@ -25,7 +25,7 @@
     "@hapi/wreck": "^17.1.0",
     "@hapi/inert": "^6.0.3",
     "@hapi/vision": "^6.1.0",
-    "applicationinsights": "2.3.5",
+    "applicationinsights": "2.7.0",
     "blipp": "^4.0.2",
     "hapi-pino": "^8.3.0",
     "hapi-swagger": "^14.2.4",
